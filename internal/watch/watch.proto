@@ -2,19 +2,19 @@ syntax = "proto3";
 
 package main;
 
-option go_package = "github.com/sanstzu/judge-api/internal/judge";
+option go_package = "github.com/sanstzu/pocket-api/internal/judge";
 
-service Judge {
-    rpc Judge(JudgeRequest) returns (JudgeResponse) {};
+service Watch {
+    rpc Run(WatchRequest) returns (WatchResponse) {};
 }
 
-message JudgeRequest {
+message WatchRequest {
     string code = 1;
     string language = 2;
     repeated string input = 3;
 }
 
-message JudgeResponse {
+message WatchResponse {
     repeated string verdict = 1;
     repeated string stdout = 2;
     repeated string stderr = 3;

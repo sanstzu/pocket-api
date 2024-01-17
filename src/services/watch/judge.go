@@ -1,11 +1,11 @@
-package judge
+package runner
 
 import (
 	"context"
 	"log"
 	"time"
 
-	pb "github.com/sanstzu/pocket-api/internal/judge"
+	pb "github.com/sanstzu/pocket-api/internal/watch"
 	"github.com/sanstzu/pocket-api/src/api/models"
 	"github.com/sanstzu/pocket-api/src/consts"
 )
@@ -14,7 +14,7 @@ func Judge(req *models.JudgeRequest) (*models.JudgeResponse, error) {
 	client := getClient()
 	consts := consts.GetConsts().JudgeRPCConfig
 
-	rpcReq := &pb.JudgeRequest{
+	rpcReq := &pb.WatchRequest{
 		Code:     req.Code,
 		Language: req.Language,
 		Input:    req.Stdin,
@@ -24,8 +24,9 @@ func Judge(req *models.JudgeRequest) (*models.JudgeResponse, error) {
 
 	defer cancel()
 
-	res, err := (*client).Judge(ctx, rpcReq)
+	res, err := (*client).Run(ctx, rpcReq)
 	if err != nil {
+		// TODO: Create a custom logger for the watch service
 		log.Print(err)
 		return nil, err
 	}

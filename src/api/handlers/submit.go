@@ -7,7 +7,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/sanstzu/pocket-api/src/api/models"
-	judgeRpc "github.com/sanstzu/pocket-api/src/services/judge-rpc"
+	runner "github.com/sanstzu/pocket-api/src/services/watch"
 	"github.com/sanstzu/pocket-api/src/utils"
 )
 
@@ -37,7 +37,7 @@ func Submit(c echo.Context) error {
 		"5 6",
 	}
 
-	resp, err := judgeRpc.Judge(&models.JudgeRequest{
+	resp, err := runner.Judge(&models.JudgeRequest{
 		Code:     fileContent,
 		Language: "cpp",
 		Stdin:    testCases,

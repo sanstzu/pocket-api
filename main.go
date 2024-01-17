@@ -4,7 +4,7 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/sanstzu/pocket-api/src/api"
 	"github.com/sanstzu/pocket-api/src/consts"
-	judgeRpc "github.com/sanstzu/pocket-api/src/services/judge-rpc"
+	watch "github.com/sanstzu/pocket-api/src/services/watch"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 
 	consts.Init()
 
-	err = judgeRpc.StartClient()
+	err = watch.StartClient()
 	if err != nil {
 		panic(err)
 	}
