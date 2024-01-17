@@ -1,8 +1,8 @@
 # Pocket API
 
-REST API that judges codes against a set of testcases using the [`pocket-watch`](#references) service using gRPC.
+REST API that judges code against a set of test cases using the [`pocket-watch`](#references) service.
 
-> Currently only the code execution is supported
+> Currently only the code execution is supported 🥵
 
 ## Usage
 
@@ -14,19 +14,13 @@ REST API that judges codes against a set of testcases using the [`pocket-watch`]
     </tr>
     <tr>
         <td>
-            <code>
-                /api
-            </code>
+            <code>/api</code>
         </td>
         <td>
-            <code>
-                /submit
-            </code>
+            <code>/submit</code>
         </td>
         <td>
-            <code>
-                POST
-            </code>
+            <code>POST</code>
         </td>
         <td>
             Submit a source-code (<code>file</code>) to pocket using <code>form-data</code>
