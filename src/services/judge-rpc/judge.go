@@ -26,7 +26,7 @@ func Judge(req *models.JudgeRequest) (*models.JudgeResponse, error) {
 
 	res, err := (*client).Judge(ctx, rpcReq)
 	if err != nil {
-		log.Fatal(err)
+		log.Print(err)
 		return nil, err
 	}
 
