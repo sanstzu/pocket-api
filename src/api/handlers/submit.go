@@ -12,6 +12,7 @@ import (
 )
 
 func Submit(c echo.Context) error {
+	// TODO: Retrieve problem ID from the request
 	type requestForm struct {
 		file *multipart.FileHeader `form:"file"`
 	}
@@ -46,6 +47,8 @@ func Submit(c echo.Context) error {
 	if err != nil {
 		return err
 	}
+
+	// TODO: Compare the output with the expected output
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"verdict": resp.Verdict,
